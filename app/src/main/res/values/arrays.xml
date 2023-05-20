@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categories">
+        <item>Sports</item>
+        <item>Music</item>
+        <item>News</item>
+        <item>Games</item>
+        <item>Movies</item>
+        <item>Comedy</item>
+        <item>Education</item>
+        <item>Travel</item>
+        <item>Food</item>
+    </string-array>
+</resources>

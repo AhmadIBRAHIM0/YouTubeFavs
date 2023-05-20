@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">YouTubeFavs</string>
+    <string name="add_item_menu">Add YouTube video</string>
+    <string name="btn_add">Add</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_update">Update</string>
+    <string name="btn_cancel">Cancel</string>
 </resources>
