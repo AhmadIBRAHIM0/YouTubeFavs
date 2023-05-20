@@ -36,7 +36,7 @@ public interface YouTubeVideoDao {
      * @param youTubeVideos the YouTube videos to add
      */
     @Insert
-    public void add(YouTubeVideo... youTubeVideos);
+    public void insert(YouTubeVideo... youTubeVideos);
 
     /**
      * Update Youtube video.
