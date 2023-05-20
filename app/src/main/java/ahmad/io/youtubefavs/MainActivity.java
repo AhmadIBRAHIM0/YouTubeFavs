@@ -1,15 +1,15 @@
 package ahmad.io.youtubefavs;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -41,13 +41,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        // Without AsyncTask
-        List<YouTubeVideo> youTubeVideos = YouTubeVideoDatabase.getDb(context).youTubeVideoDao().list();
-
-        YouTubeVideoAdapter adapter = new YouTubeVideoAdapter(youTubeVideos);
-        rvYouTubeVideos.setAdapter(adapter);
-
-        // With AsyncTask
         YouTubeVideoAsyncTask asyncTask = new YouTubeVideoAsyncTask();
         asyncTask.execute();
     }
@@ -72,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    // class YouTubeVideoAsyncTask
+
     public class YouTubeVideoAsyncTask extends AsyncTask<Void, Void, List<YouTubeVideo>> {
 
         @Override
