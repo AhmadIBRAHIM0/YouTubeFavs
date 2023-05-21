@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,11 +46,21 @@ public class VideoDetailActivity extends AppCompatActivity {
         TextView tvUrl = findViewById(R.id.tvUrl);
         TextView tvCategory = findViewById(R.id.tvCategory);
         Button btnWatch = findViewById(R.id.btnWatch);
+        ImageView ivFavorite = findViewById(R.id.ivFavorite);
 
         tvTitle.setText(title);
         tvDescription.setText(description);
         tvUrl.setText(url);
         tvCategory.setText(category);
+
+        ivFavorite.setOnClickListener(v -> {
+            // Toggle the favorite status
+            boolean isFavorite = toggleFavoriteStatus();
+
+            // Update the star icon
+            int starIconRes = isFavorite ? R.drawable.ic_star : R.drawable.ic_star_border;
+            ivFavorite.setImageResource(starIconRes);
+        });
 
         btnWatch.setOnClickListener(v -> {
 
@@ -138,6 +149,33 @@ public class VideoDetailActivity extends AppCompatActivity {
         // Create and show the dialog
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    private boolean toggleFavoriteStatus() {
+        // Retrieve the video from the database
+        YouTubeVideoDatabase db = YouTubeVideoDatabase.getDb(getApplicationContext());
+        YouTubeVideo video = db.youTubeVideoDao().find(videoId);
+        String message;
+        boolean isFavorite;
+
+        if (video.getFavorite() == 0) {
+            // The video is not a favorite, so make it a favorite
+            video.setFavorite(1);
+            message = "Video added to favorites";
+            isFavorite = true;
+        } else {
+            // The video is a favorite, so remove it from favorites
+            video.setFavorite(0);
+            message = "Video removed from favorites";
+            isFavorite = false;
+        }
+
+        // Update the video in the database
+        db.youTubeVideoDao().update(video);
+
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+
+        return isFavorite;
     }
 
 }
