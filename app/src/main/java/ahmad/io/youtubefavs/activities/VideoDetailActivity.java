@@ -36,17 +36,20 @@ public class VideoDetailActivity extends AppCompatActivity {
         String title = intent.getStringExtra("title");
         String description = intent.getStringExtra("description");
         String url = intent.getStringExtra("url");
+        String category = intent.getStringExtra("category");
         this.videoId = intent.getLongExtra("videoId", 0);
 
         // Display the data in the appropriate views
         TextView tvTitle = findViewById(R.id.tvTitle);
         TextView tvDescription = findViewById(R.id.tvDescription);
         TextView tvUrl = findViewById(R.id.tvUrl);
+        TextView tvCategory = findViewById(R.id.tvCategory);
         Button btnWatch = findViewById(R.id.btnWatch);
 
         tvTitle.setText(title);
         tvDescription.setText(description);
         tvUrl.setText(url);
+        tvCategory.setText(category);
 
         btnWatch.setOnClickListener(v -> {
 
@@ -102,10 +105,12 @@ public class VideoDetailActivity extends AppCompatActivity {
             TextView tvTitle = findViewById(R.id.tvTitle);
             TextView tvDescription = findViewById(R.id.tvDescription);
             TextView tvUrl = findViewById(R.id.tvUrl);
+            TextView tvCategory = findViewById(R.id.tvCategory);
 
             tvTitle.setText(updatedVideo.getTitle());
             tvDescription.setText(updatedVideo.getDescription());
             tvUrl.setText(updatedVideo.getUrl());
+            tvCategory.setText(updatedVideo.getCategory());
         }
     }
 

@@ -32,6 +32,14 @@
         android:autoLink="web"
         android:text="Video URL"
         android:layout_below="@+id/tvDescription"
+        android:layout_marginBottom="18dp" />
+    <TextView
+        android:id="@+id/tvCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:text="Video category"
+        android:layout_below="@+id/tvUrl"
         android:layout_marginBottom="28dp" />
 
     <Button
@@ -40,7 +48,7 @@
         android:layout_height="wrap_content"
         android:text="Watch"
         android:layout_centerInParent="true"
-        android:layout_below="@+id/tvUrl"
+        android:layout_below="@+id/tvCategory"
         android:layout_marginTop="8dp"
         android:background="@drawable/watch_button_background"
         android:textColor="#FFFFFF"

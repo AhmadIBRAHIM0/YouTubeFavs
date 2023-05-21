@@ -113,6 +113,11 @@ public class UpdateYouTubeActivity extends AppCompatActivity {
 
                 // Finish the activity
                 finish();
+
+//                // To go back to the main activity (But i don't like this, so i prefer to go back to the previous activity)
+//                Intent newIntent = new Intent(UpdateYouTubeActivity.this, MainActivity.class);
+//                newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // Clear the activity stack
+//                startActivity(newIntent);
             }
         });
 

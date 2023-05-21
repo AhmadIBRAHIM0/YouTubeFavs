@@ -68,6 +68,7 @@ public class YouTubeVideoAdapter extends RecyclerView.Adapter<YouTubeVideoAdapte
             intent.putExtra("title", youTubeVideo.getTitle());
             intent.putExtra("description", youTubeVideo.getDescription());
             intent.putExtra("url", youTubeVideo.getUrl());
+            intent.putExtra("category", youTubeVideo.getCategory());
 
             v.getContext().startActivity(intent);
         });
