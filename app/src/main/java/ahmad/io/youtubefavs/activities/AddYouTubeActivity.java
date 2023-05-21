@@ -30,6 +30,7 @@ public class AddYouTubeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_youtube_video);
+        setTitle("Add new video");
 
         // Get the context
         context = getApplicationContext();
