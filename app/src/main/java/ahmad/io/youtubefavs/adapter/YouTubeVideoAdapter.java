@@ -69,6 +69,7 @@ public class YouTubeVideoAdapter extends RecyclerView.Adapter<YouTubeVideoAdapte
             intent.putExtra("description", youTubeVideo.getDescription());
             intent.putExtra("url", youTubeVideo.getUrl());
             intent.putExtra("category", youTubeVideo.getCategory());
+            intent.putExtra("isFavorite", youTubeVideo.isFavorite());
 
             v.getContext().startActivity(intent);
         });
@@ -78,5 +79,4 @@ public class YouTubeVideoAdapter extends RecyclerView.Adapter<YouTubeVideoAdapte
     public int getItemCount() {
         return youTubeVideos.size();
     }
-
 }

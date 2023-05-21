@@ -173,4 +173,8 @@ public class YouTubeVideo {
                 ", favorite=" + favorite +
                 '}';
     }
+
+    public boolean isFavorite() {
+        return favorite == 1;
+    }
 }

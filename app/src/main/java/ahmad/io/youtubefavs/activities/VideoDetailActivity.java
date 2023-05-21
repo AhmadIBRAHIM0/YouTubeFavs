@@ -53,6 +53,12 @@ public class VideoDetailActivity extends AppCompatActivity {
         tvUrl.setText(url);
         tvCategory.setText(category);
 
+        if (intent.getBooleanExtra("isFavorite", false)) {
+            ivFavorite.setImageResource(R.drawable.ic_star);
+        } else {
+            ivFavorite.setImageResource(R.drawable.ic_star_border);
+        }
+
         ivFavorite.setOnClickListener(v -> {
             // Toggle the favorite status
             boolean isFavorite = toggleFavoriteStatus();

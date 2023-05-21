@@ -30,6 +30,15 @@ public interface YouTubeVideoDao {
     @Query("SELECT * FROM youtubevideo")
     public List<YouTubeVideo> list();
 
+
+    /**
+     * List favorite YouTube videos.
+     *
+     * @return the YouTube videos list
+     */
+    @Query("SELECT * FROM youtubevideo WHERE favorite = 1")
+    public List<YouTubeVideo> listFavorites();
+
     /**
      * Add Youtube video.
      *
