@@ -6,6 +6,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -75,9 +77,18 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(List<YouTubeVideo> youTubeVideos) {
-
             YouTubeVideoAdapter adapter = new YouTubeVideoAdapter(youTubeVideos);
             rvYouTubeVideos.setAdapter(adapter);
+
+            // Check if the video list is empty
+            if (youTubeVideos.isEmpty()) {
+                TextView tvNoVideos = findViewById(R.id.tvNoVideos);
+                tvNoVideos.setVisibility(View.VISIBLE);
+            } else {
+                TextView tvNoVideos = findViewById(R.id.tvNoVideos);
+                tvNoVideos.setVisibility(View.GONE);
+            }
         }
+
     }
 }
