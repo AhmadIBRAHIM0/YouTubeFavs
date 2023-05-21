@@ -17,6 +17,14 @@
             android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.VideoDetailActivity"
+            android:parentActivityName=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.UpdateYouTubeActivity"
+            android:parentActivityName=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

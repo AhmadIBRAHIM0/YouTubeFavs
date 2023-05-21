@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    tools:ignore="HardcodedText">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Video Title"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginBottom="18dp" />
+
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Video description"
+        android:textStyle="italic"
+        android:textSize="16sp"
+        android:layout_below="@+id/tvTitle"
+        android:layout_marginBottom="18dp" />
+
+    <TextView
+        android:id="@+id/tvUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:text="Video URL"
+        android:layout_below="@+id/tvDescription"
+        android:layout_marginBottom="28dp" />
+
+    <Button
+        android:id="@+id/btnWatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Watch"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/tvUrl"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/watch_button_background"
+        android:textColor="#FFFFFF"
+        />
+
+</RelativeLayout>

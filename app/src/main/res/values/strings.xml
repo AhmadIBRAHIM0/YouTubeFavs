@@ -5,4 +5,6 @@
     <string name="btn_save">Save</string>
     <string name="btn_update">Update</string>
     <string name="btn_cancel">Cancel</string>
+    <string name="edit_item_menu">Edit YouTube video</string>
+    <string name="delete_item_menu">Delete YouTube video</string>
 </resources>

@@ -1,14 +1,11 @@
 package ahmad.io.youtubefavs.adapter;
 
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import ahmad.io.youtubefavs.R;
+import ahmad.io.youtubefavs.activities.VideoDetailActivity;
 import ahmad.io.youtubefavs.pojos.YouTubeVideo;
 
 public class YouTubeVideoAdapter extends RecyclerView.Adapter<YouTubeVideoAdapter.YouTubeVideoViewHolder> {
@@ -58,22 +56,20 @@ public class YouTubeVideoAdapter extends RecyclerView.Adapter<YouTubeVideoAdapte
         // Set the YouTube video information in the item view
         holder.tvTitle.setText(youTubeVideo.getTitle());
         holder.tvDescription.setText(youTubeVideo.getDescription());
-        holder.tvUrl.setText(youTubeVideo.getUrl());
-        holder.btnWatch.setOnClickListener(v -> {
 
-            // Get the URL of the YouTube video
-            String url = youTubeVideo.getUrl();
+        // Click listener for the item
+        holder.itemView.setOnClickListener(v -> {
 
-            // Create an intent to watch the YouTube video
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            // Create an intent to start the VideoDetailsActivity
+            Intent intent = new Intent(v.getContext(), VideoDetailActivity.class);
 
-            // Start the activity
-            try {
-                v.getContext().startActivity(intent);
-            } catch (ActivityNotFoundException e) {
-                // Display a toast message if the YouTube app is not installed
-                Toast.makeText(v.getContext(), "The YouTube app is not installed", Toast.LENGTH_SHORT).show();
-            }
+            // Pass the necessary data as extras
+            intent.putExtra("videoId", youTubeVideo.getId());
+            intent.putExtra("title", youTubeVideo.getTitle());
+            intent.putExtra("description", youTubeVideo.getDescription());
+            intent.putExtra("url", youTubeVideo.getUrl());
+
+            v.getContext().startActivity(intent);
         });
     }
 
